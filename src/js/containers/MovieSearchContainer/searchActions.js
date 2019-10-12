@@ -9,17 +9,17 @@ export function updateSearchInput(title){
 }
 
 export function searchTitle(title){
-    console.log('Search title action');
-    const searchTerm = title;
+    // console.log('Search title action');
+    // const searchTerm = title;
     return {
         type: 'SEARCH_TITLE',
-        payload: axios.get(`/movieInfo/${searchTerm}`)
+        payload: axios.get(`/movieInfo/${title}`)
     };
 }
 
-export function searchId(id){
+export function getDetails(id){
     return {
-        type: 'SEARCH_ID',
+        type: 'GET_DETAILS',
         payload: axios.get(`/movie/${id}`)
     };
 }

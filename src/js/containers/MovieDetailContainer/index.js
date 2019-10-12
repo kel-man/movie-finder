@@ -3,9 +3,9 @@ import MovieDetailContainer from './MovieDetailContainer';
 
 function mapStoreToProps(store){
     return {
-        title: store.title,
-        movies: store.movies,
-        movieInfo: store.movieInfo
+        title: store.Search.title,
+        movies: store.Search.movies,
+        movieInfo: store.Search.movieInfo
     }
 }
 
