@@ -11,8 +11,9 @@ app.use(express.static('dist'));
 app.use(express.static('public'));
 
 app.get('/movieInfo/:title', (req, res) => {
+  let title = req.params.title;
     return axios({
-      url: `http://omdbapi.com/?s=${req.params.title}&apikey=${process.env.OMDB_API_KEY}`,
+      url: `http://omdbapi.com/?s=${title}&apikey=${process.env.OMDB_API_KEY}`,
       method: 'get'
     })
     .then((response) => {
@@ -22,8 +23,9 @@ app.get('/movieInfo/:title', (req, res) => {
   });
 
 app.get('/movie/:id', (req, res) => {
+  let id = req.params.id;
     return axios({
-        url: `http://omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`,
+        url: `http://omdbapi.com/?i=${id}&apikey=${process.env.OMDB_API_KEY}`,
         method: 'get'
     })
     .then((response) => {

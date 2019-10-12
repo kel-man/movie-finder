@@ -4,8 +4,8 @@ import {
   Route
 } from 'react-router-dom';
 
-import MovieSearchContainer from './containers/MovieSearchContainer/MovieSearchContainer';
-import MovieDetailContainer from './containers/MovieDetailContainer/MovieDetailContainer';
+import MovieSearchContainer from './containers/MovieSearchContainer/index';
+import MovieDetailContainer from './containers/MovieDetailContainer/index';
 
 export default class App extends Component {
   render() {

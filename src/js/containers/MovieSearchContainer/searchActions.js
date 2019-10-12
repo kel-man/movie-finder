@@ -1,16 +1,19 @@
 import axios from 'axios';
 
-export function updateSearchInput(str){
+export function updateSearchInput(title){
+    console.log('inside updateSearchInput title', title);
     return {
         type: 'UPDATE_SEARCH_INPUT',
-        payload: { str }
+        payload: title
     };
 }
 
-export function searchTitle(str){
+export function searchTitle(title){
+    console.log('Search title action');
+    const searchTerm = title;
     return {
         type: 'SEARCH_TITLE',
-        payload: axios.get(`/movies/${str}`)
+        payload: axios.get(`/movieInfo/${searchTerm}`)
     };
 }
 

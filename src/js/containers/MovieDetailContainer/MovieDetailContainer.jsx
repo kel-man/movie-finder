@@ -6,9 +6,9 @@ class MovieDetailContainer extends React.Component {
         super(props);
     }
 
-    componentDidMount(){
-        dispatch(searchId(this.props.match.params.id));
-    }
+    // componentDidMount(){
+        // dispatch(searchId(this.props.match.params.id));
+    // }
 
     render() {
         const { movie } = this.props;
