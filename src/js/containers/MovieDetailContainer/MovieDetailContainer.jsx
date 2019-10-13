@@ -20,14 +20,18 @@ class MovieDetailContainer extends React.Component {
     }
 
     render() {
-        const { movieInfo, movies } = this.props;
-        const Movie = movies.find(x => x.imdbID === this.props.match.params.id)
+        const { movieInfo } = this.props;
         return (
             <div>
-                <h1>Movie Detail Container</h1>
+                <h1>Movie Details</h1>
+                <img src={movieInfo.Poster} />
                 
-                <p>Viewing Movie {this.props.match.params.id}</p>
-                <img src={Movie.Poster} />
+                <p>Viewing Movie {movieInfo.Title}</p>
+                <p>Released: {movieInfo.Year}</p>
+                <p>About: {movieInfo.Genre}</p>
+                <p>Rated {movieInfo.Rated}</p>
+                <p>Runtime: {movieInfo.Runtime}</p>
+                <p>Cast: {movieInfo.Actors}</p>
                 <Link to={`/`}>Back</Link>
             </div>
         )
