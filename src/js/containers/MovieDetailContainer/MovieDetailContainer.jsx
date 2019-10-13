@@ -25,14 +25,14 @@ class MovieDetailContainer extends React.Component {
             <div>
                 <h1>Movie Details</h1>
                 <img src={movieInfo.Poster} />
-                
-                <p>Viewing Movie {movieInfo.Title}</p>
-                <p>Released: {movieInfo.Year}</p>
-                <p>About: {movieInfo.Genre}</p>
-                <p>Rated {movieInfo.Rated}</p>
-                <p>Runtime: {movieInfo.Runtime}</p>
-                <p>Cast: {movieInfo.Actors}</p>
-                <Link to={`/`}>Back</Link>
+                <p className='title'>Viewing Movie {movieInfo.Title}</p>
+                <p className='year'>Released: {movieInfo.Year}</p>
+                <p className='genre'>About: {movieInfo.Genre}</p>
+                <p className='rated'>Rated {movieInfo.Rated}</p>
+                <p className='runtime'>Runtime: {movieInfo.Runtime}</p>
+                <p className='actors'>Cast: {movieInfo.Actors}</p>
+                <p className='plot'>Synopsis: {movieInfo.Plot}</p>
+                <Link to={`/`} className='back-button'>Back</Link>
             </div>
         )
     }

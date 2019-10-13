@@ -1,5 +1,4 @@
 const defaultState = {
-    title: '',
     movies: [],
     movieInfo: [],
     pending: false
@@ -8,12 +7,6 @@ const defaultState = {
 export default function searchReducer(state = defaultState, action) {
     const { type, payload } = action;
     switch (type) {
-        case 'UPDATE_SEARCH_INPUT' : {
-            return {
-                ...state,
-                title: payload
-            }
-        }
         case 'SEARCH_TITLE_PENDING' : {
             return {
                 ...state,
@@ -28,10 +21,17 @@ export default function searchReducer(state = defaultState, action) {
                 pending: false
             }
         }
+        case 'GET_DETAILS_PENDING' : {
+            return {
+                ...state,
+                pending: true
+            }
+        }
         case 'GET_DETAILS_FULFILLED' : {
             return {
                 ...state,
-                movieInfo: payload.data
+                movieInfo: payload.data,
+                pending: false
             }
         } 
         default: return state;

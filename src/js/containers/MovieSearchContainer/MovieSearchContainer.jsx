@@ -12,7 +12,7 @@ class DisplayCard extends React.Component {
                 <h3 className='card-title'>Title: { title }</h3>
                 <p className='released'>Released: {year}</p>
                 <img src={poster}/>
-                <Link to={`/movie/${imdbID}`} id='link'>About...</Link>
+                <Link to={`/movie/${imdbID}`} className='more-button' id='link'>About...</Link>
             </div>
         )
     }
@@ -32,7 +32,6 @@ class MovieSearchContainer extends React.Component {
         this.setState({
             input: e.target.value
         })
-        console.log(this.state.input);
     }
 
     handleButtonClick(str){
@@ -49,11 +48,11 @@ class MovieSearchContainer extends React.Component {
             ))
         } else {display = <h2>No Movies Loaded</h2>}
         return (
-            <div>
-                <h1>Movie Search Container</h1>
+            <div className='container'>
+                <h1 className='banner'>Search pictures by title: </h1>
                 <label htmlFor='title-input'>Search for a title:</label>
                 <input type='text' className='title-input search' onChange={this.handleInputChange}/>
-                <button className='title-search' onClick={() => this.handleButtonClick(this.state.input)}>Search!</button>
+                <button className='search-button' onClick={() => this.handleButtonClick(this.state.input)}>Search!</button>
                 {display}
             </div>
         )
