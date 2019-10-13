@@ -23,7 +23,7 @@ export default function searchReducer(state = defaultState, action) {
         case 'SEARCH_TITLE_FULFILLED' : {
             return {
                 ...state,
-                searchInput: payload.data.Search.Title,
+                searchInput: payload.data.Search.title,
                 movies: payload.data.Search,
                 pending: false
             }

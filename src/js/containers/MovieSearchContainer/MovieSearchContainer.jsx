@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
     searchTitle
 } from './searchActions';
 
 class DisplayCard extends React.Component {
     render(){
-        const { title, year, picture } = this.props;
+        const { title, year, imdbID, poster } = this.props;
         return(
-            <div>
-                <h3>{ title }</h3>
-                <p>Released: {year}</p>
+            <div className='result-card'>
+                <h3 className='card-title'>Title: { title }</h3>
+                <p className='released'>Released: {year}</p>
+                <img src={poster}/>
+                <Link to={`/movie/${imdbID}`} id='link'>About...</Link>
             </div>
         )
     }
@@ -26,9 +29,6 @@ class MovieSearchContainer extends React.Component {
     }
 
     handleInputChange(e){
-        // const { dispatch } = this.props;
-        // const { value } = e.target;
-        // console.log(value);
         this.setState({
             input: e.target.value
         })
@@ -44,10 +44,10 @@ class MovieSearchContainer extends React.Component {
         const { movies } = this.props;
         var display;
         if(movies.length >= 1){
-            display = movies.slice(0, 5).map((picture, index) => (
-                <DisplayCard key={index} title={picture.title} year={picture.year} picture={picture}/>
+            display = movies.slice(0, 5).map((movie, index) => (
+                <DisplayCard key={index} title={movie.Title} year={movie.Year} imdbID={movie.imdbID} poster={movie.Poster} />
             ))
-        } else {display = <p>No Movies Loaded</p>}
+        } else {display = <h2>No Movies Loaded</h2>}
         return (
             <div>
                 <h1>Movie Search Container</h1>
@@ -61,3 +61,4 @@ class MovieSearchContainer extends React.Component {
 }
 
 export default MovieSearchContainer;
+
